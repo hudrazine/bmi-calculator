@@ -1,0 +1,16 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+	"name": "BMI-Calculator",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+	"mounts": [
+		{
+			// Volume mounting of dependencies improves performance.
+			"source": "${containerWorkspaceFolderBasename}-pnpm-store",
+			"target": "/root/.local/share/pnpm/store",
+			"type": "volume"
+		}
+	]
+}
