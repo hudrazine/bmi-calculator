@@ -5,6 +5,7 @@
 		"context": "..",
 		"dockerfile": "Dockerfile"
 	},
+	"forwardPorts": [5173],
 	"mounts": [
 		{
 			// Volume mounting of dependencies improves performance.
@@ -12,5 +13,16 @@
 			"target": "/root/.local/share/pnpm/store",
 			"type": "volume"
 		}
-	]
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"svelte.svelte-vscode",
+				"bradlc.vscode-tailwindcss",
+				"vitest.explorer",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	}
 }
