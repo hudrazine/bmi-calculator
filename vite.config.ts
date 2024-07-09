@@ -7,7 +7,11 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	server: {
+		watch: {
+			usePolling: true,
+			interval: 1000,
+		},
 		host: '0.0.0.0',
 		port: 5173
-	}
+	},
 });
