@@ -5,6 +5,8 @@
 		"context": "..",
 		"dockerfile": "Dockerfile"
 	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/bmi-calculator,type=bind,consistency=cached",
+	"workspaceFolder": "/workspaces/bmi-calculator",
 	"forwardPorts": [5173],
 	"mounts": [
 		{

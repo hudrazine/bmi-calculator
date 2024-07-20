@@ -1,10 +1,3 @@
-<svelte:options
-	customElement={{
-		tag: "bmi-calculator",
-		shadow: "none",
-	}}
-/>
-
 <script lang="ts">
 	/**
 	 * BMI計算機コンポーネント
@@ -12,7 +5,6 @@
 	 * このコンポーネントは、ユーザーの身長と体重を入力として受け取り、
 	 * BMIを計算して結果を表示します。
 	 */
-	import "./style.css"
 	import { writable } from "svelte/store"
 	import InputField from "./InputField.svelte"
 
