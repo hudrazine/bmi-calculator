@@ -20,10 +20,18 @@
 	let height = writable<number | null>(null)
 	let bmi = writable<number>(0)
 	let result = writable<BmiKind | null>(null)
+	let errorMessage = writable<string | null>(null)
 
 	// 体重と身長の値が変更されたらBMIをリセット
 	weight.subscribe(resetBMI)
 	height.subscribe(resetBMI)
+
+	// 体重または身長の値が変更されたらエラーメッセージをリセット
+	$: {
+		if ($weight !== null || $height !== null) {
+			$errorMessage = null
+		}
+	}
 
 	/**
 	 * BMIをリセットする関数
@@ -40,11 +48,21 @@
 	 * BMIを計算する関数
 	 *
 	 * この関数は、体重と身長を入力として受け取り、BMIを計算して結果を表示します。
+	 * 入力値が不足している場合は、エラーメッセージを表示します。
 	 */
 	function calculateBMI(): void {
-		// TODO: 体重と身長が入力されていない場合はエラーメッセージを表示する
-		if ($weight === null || $height === null) return
+		if ($weight === null && $height === null) {
+			$errorMessage = "体重と身長を入力してください。"
+			return
+		} else if ($weight === null) {
+			$errorMessage = "体重を入力してください。"
+			return
+		} else if ($height === null) {
+			$errorMessage = "身長を入力してください。"
+			return
+		}
 
+		$errorMessage = null // エラーメッセージをリセット
 		const weightValue = $weight
 		const heightValue = $height / 100 // cmをmに変換
 		$bmi = Number((weightValue / (heightValue * heightValue)).toFixed(1))
@@ -65,8 +83,11 @@
 			自分の肥満度をチェックしてみましょう!
 		</p>
 
+		<!-- 入力ブロック -->
 		<div class="tw-px-8">
-			<div class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-space-x-4 tw-space-y-4 sm:tw-space-y-0 tw-my-8">
+			<div
+				class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-space-x-4 tw-space-y-4 sm:tw-space-y-0 tw-my-8"
+			>
 				<InputField
 					id="weight"
 					label="体重(kg)"
@@ -88,24 +109,36 @@
 				/>
 			</div>
 
-			<button
-				type="button"
-				on:click={calculateBMI}
-				class="
-					tw-w-full tw-py-3
-					tw-rounded-lg
-					tw-bg-red-500
-					tw-text-white tw-text-lg tw-text-center tw-font-semibold
-					tw-transition tw-ease-in tw-duration-200
-					hover:tw-bg-red-600
-					focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-red-500 focus:tw-ring-offset-2 focus:tw-ring-offset-red-200
-				"
-			>
-				BMIを診断する
-			</button>
+			<div class="tw-relative">
+				{#if $errorMessage}
+					<p
+						class="tw-absolute -tw-top-4 tw-left-0 tw-right-0 tw-text-red-500 tw-text-sm tw-text-center tw-bg-white tw-py-1"
+					>
+						{$errorMessage}
+					</p>
+				{/if}
+				<button
+					type="button"
+					on:click={calculateBMI}
+					class="
+						tw-w-full tw-py-3 tw-mt-4
+						tw-rounded-lg
+						tw-bg-red-500
+						tw-text-white tw-text-lg tw-text-center tw-font-semibold
+						tw-transition tw-ease-in tw-duration-200
+						hover:tw-bg-red-600
+						focus:tw-outline-none focus:tw-ring-2 tw-ring-red-500 focus:tw-ring-offset-2 focus:tw-ring-offset-red-200
+					"
+				>
+					BMIを診断する
+				</button>
+			</div>
 		</div>
 
-		<div class="tw-flex tw-flex-col tw-min-h-48 tw-mt-10 tw-px-8 tw-py-4 tw-bg-slate-100 tw-rounded-3xl">
+		<!-- 診断結果表示ブロック -->
+		<div
+			class="tw-flex tw-flex-col tw-min-h-48 tw-mt-10 tw-px-8 tw-py-4 tw-bg-slate-100 tw-rounded-3xl"
+		>
 			<h3
 				class="tw-text-xl tw-font-normal tw-text-center tw-text-gray-500 tw-mb-4 tw-pb-3 tw-border-b-2 tw-border-white"
 				class:tw-text-gray-700={$bmi > 0}
@@ -151,6 +184,7 @@
 		</div>
 	</div>
 
+	<!-- 注釈 -->
 	<div class="tw-mt-2 tw-px-4 tw-text-sm tw-text-gray-500">
 		<p>
 			<span class="tw-pr-2">BMI計算式：</span>体重kg ÷ (身長m × 身長m) = BMI
