@@ -5,7 +5,7 @@ const config = {
 	semi: false,
 	trailingComma: 'all',
 	overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
-	plugins: ['prettier-plugin-svelte', '@trivago/prettier-plugin-sort-imports'],
+	plugins: ['prettier-plugin-svelte', '@ianvs/prettier-plugin-sort-imports'],
 	importOrder: [
 		'^(svelte/(.*)$)|^(svelte$)',
 		'^(@sveltejs/(.*)$)|^(@sveltejs/kit$)',
