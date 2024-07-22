@@ -13,19 +13,20 @@
 	export let step: string
 	export let min: string
 	export let class_name = ""
+	export { class_name as class }
 </script>
 
-<div class={`flex relative min-w-48 ${class_name}`}>
+<div class={`tw-flex tw-relative tw-min-w-48 ${class_name}`}>
 	<label
 		for={id}
 		class="
-			inline-flex items-center
-			min-w-20 px-3
-			rounded-l-md
-			border-t border-l border-b border-slate-300
-			bg-white
-			text-gray-500 text-sm
-			shadow-sm
+			tw-inline-flex tw-items-center
+			tw-min-w-20 tw-px-3
+			tw-rounded-l-md
+			tw-border-t tw-border-l tw-border-b tw-border-slate-300
+			tw-bg-white
+			tw-text-gray-500 tw-text-sm
+			tw-shadow-sm
 		"
 	>
 		{label}
@@ -38,16 +39,16 @@
 		{placeholder}
 		bind:value
 		class="
-			flex-1
-			w-full px-4 py-2
-			rounded-r-md
-			border border-slate-300
-			bg-white
-			text-gray-700 text-base
-			placeholder:text-gray-400
-			shadow-sm
-			appearance-none
-			focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent
+			tw-flex-1
+			tw-w-full tw-px-4 tw-py-2
+			tw-rounded-r-md
+			tw-border tw-border-slate-300
+			tw-bg-white
+			tw-text-gray-700 tw-text-base
+			placeholder:tw-text-gray-400
+			tw-shadow-sm
+			tw-appearance-none
+			focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-red-500 focus:tw-border-transparent
 		"
 	/>
 </div>

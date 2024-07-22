@@ -59,14 +59,14 @@
 	}
 </script>
 
-<div class="max-w-xl mx-auto">
-	<div class="p-8 bg-white rounded-xl border-2 border-slate-300">
-		<h2 class="mb-4 text-xl font-bold text-center text-gray-700">
+<div class="tw-max-w-xl tw-mx-auto">
+	<div class="tw-p-8 tw-bg-white tw-rounded-xl tw-border-2 tw-border-slate-300">
+		<p class="tw-mb-4 tw-text-xl tw-font-bold tw-text-center tw-text-gray-700">
 			自分の肥満度をチェックしてみましょう!
-		</h2>
+		</p>
 
-		<div class="px-8">
-			<div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 my-8">
+		<div class="tw-px-8">
+			<div class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-space-x-4 tw-space-y-4 sm:tw-space-y-0 tw-my-8">
 				<InputField
 					id="weight"
 					label="体重(kg)"
@@ -74,7 +74,7 @@
 					placeholder="60"
 					step="0.1"
 					min="0"
-					class_name="w-full sm:w-1/2"
+					class="tw-w-full sm:tw-w-1/2"
 				/>
 
 				<InputField
@@ -84,7 +84,7 @@
 					placeholder="160"
 					step="1"
 					min="0"
-					class_name="w-full sm:w-1/2"
+					class="tw-w-full sm:tw-w-1/2"
 				/>
 			</div>
 
@@ -92,52 +92,52 @@
 				type="button"
 				on:click={calculateBMI}
 				class="
-					w-full py-3
-					rounded-lg
-					bg-red-500
-					text-white text-lg text-center font-semibold
-					transition ease-in duration-200
-					hover:bg-red-600
-					focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200
+					tw-w-full tw-py-3
+					tw-rounded-lg
+					tw-bg-red-500
+					tw-text-white tw-text-lg tw-text-center tw-font-semibold
+					tw-transition tw-ease-in tw-duration-200
+					hover:tw-bg-red-600
+					focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-red-500 focus:tw-ring-offset-2 focus:tw-ring-offset-red-200
 				"
 			>
 				BMIを診断する
 			</button>
 		</div>
 
-		<div class="flex flex-col min-h-48 mt-10 px-8 py-4 bg-slate-100 rounded-3xl">
+		<div class="tw-flex tw-flex-col tw-min-h-48 tw-mt-10 tw-px-8 tw-py-4 tw-bg-slate-100 tw-rounded-3xl">
 			<h3
-				class="text-xl font-normal text-center text-gray-500 mb-4 pb-3 border-b-2 border-white"
-				class:text-gray-700={$bmi > 0}
+				class="tw-text-xl tw-font-normal tw-text-center tw-text-gray-500 tw-mb-4 tw-pb-3 tw-border-b-2 tw-border-white"
+				class:tw-text-gray-700={$bmi > 0}
 			>
 				診断結果
 			</h3>
-			<div class="flex-1 flex items-center justify-center">
+			<div class="tw-flex-1 tw-flex tw-items-center tw-justify-center">
 				{#if $bmi > 0}
-					<div class="flex justify-center items-center w-full h-full">
-						<div class="flex-1 text-center">
-							<p class="text-base text-gray-700 mb-2">あなたのBMI</p>
-							<p class="text-4xl font-bold">{$bmi}</p>
+					<div class="tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full">
+						<div class="tw-flex-1 tw-text-center">
+							<p class="tw-text-base tw-text-gray-700 tw-mb-2">あなたのBMI</p>
+							<p class="tw-text-4xl tw-font-bold">{$bmi}</p>
 						</div>
-						<div class="w-0.5 self-stretch bg-white mx-4"></div>
-						<div class="flex-1 text-center">
-							<p class="text-base text-gray-700 mb-3">判定</p>
+						<div class="tw-w-0.5 tw-self-stretch tw-bg-white tw-mx-4"></div>
+						<div class="tw-flex-1 tw-text-center">
+							<p class="tw-text-base tw-text-gray-700 tw-mb-3">判定</p>
 							{#if $result === BmiKind.Normal}
-								<p class="text-4xl font-bold text-emerald-500">適正</p>
+								<p class="tw-text-4xl tw-font-bold tw-text-emerald-500">適正</p>
 							{:else if $result === BmiKind.Under}
-								<p class="text-4xl font-bold text-cyan-500">やせ</p>
+								<p class="tw-text-4xl tw-font-bold tw-text-cyan-500">やせ</p>
 							{:else}
-								<p class="text-4xl font-bold text-amber-500">
-									肥満<span class="text-xl ml-1">気味</span>
+								<p class="tw-text-4xl tw-font-bold tw-text-amber-500">
+									肥満<span class="tw-text-xl tw-ml-1">気味</span>
 								</p>
 							{/if}
 						</div>
 					</div>
 				{:else}
-					<div class="text-gray-500 text-center">
-						<div class="inline-block text-left">
-							<ol class="list-decimal pl-5">
-								<li class="mb-2">
+					<div class="tw-text-gray-500 tw-text-center">
+						<div class="tw-inline-block tw-text-left">
+							<ol class="tw-list-decimal tw-pl-5">
+								<li class="tw-mb-2">
 									<span>「体重」と「身長」を入力してください。</span>
 								</li>
 								<li>
@@ -151,12 +151,12 @@
 		</div>
 	</div>
 
-	<div class="mt-2 px-4 text-sm text-gray-500">
+	<div class="tw-mt-2 tw-px-4 tw-text-sm tw-text-gray-500">
 		<p>
-			<span class="pr-2">BMI計算式：</span>体重kg ÷ (身長m × 身長m) = BMI
+			<span class="tw-pr-2">BMI計算式：</span>体重kg ÷ (身長m × 身長m) = BMI
 		</p>
 		<p>
-			<span class="pr-2">BMI判定基準：</span>18.5未満 (痩せ) / 18.5以上～25.0未満 (適正) /
+			<span class="tw-pr-2">BMI判定基準：</span>18.5未満 (痩せ) / 18.5以上～25.0未満 (適正) /
 			25.0以上(肥満気味)
 		</p>
 	</div>
