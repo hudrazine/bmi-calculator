@@ -78,7 +78,7 @@
 </script>
 
 <div class="tw-max-w-xl tw-mx-auto">
-	<div class="tw-p-8 tw-bg-white tw-rounded-xl tw-border-2 tw-border-slate-300">
+	<div class="tw-p-6 sm:tw-p-8 tw-bg-white tw-rounded-xl tw-border-2 tw-border-slate-300">
 		<p class="tw-mb-4 tw-text-xl tw-font-bold tw-text-center tw-text-gray-700">
 			自分の肥満度をチェックしてみましょう!
 		</p>
@@ -137,7 +137,7 @@
 
 		<!-- 診断結果表示ブロック -->
 		<div
-			class="tw-flex tw-flex-col tw-min-h-48 tw-mt-10 tw-px-8 tw-py-4 tw-bg-slate-100 tw-rounded-3xl"
+			class="tw-flex tw-flex-col tw-min-h-48 tw-mt-10 tw-px-6 sm:tw-px-8 tw-py-4 tw-bg-slate-100 tw-rounded-3xl"
 		>
 			<h3
 				class="tw-text-xl tw-font-normal tw-text-center tw-text-gray-500 tw-mb-4 tw-pb-3 tw-border-b-2 tw-border-white"
@@ -160,7 +160,7 @@
 							{:else if $result === BmiKind.Under}
 								<p class="tw-text-4xl tw-font-bold tw-text-cyan-500">やせ</p>
 							{:else}
-								<p class="tw-text-4xl tw-font-bold tw-text-amber-500">
+								<p class="tw-text-3xl sm:tw-text-4xl tw-font-bold tw-text-amber-500">
 									肥満<span class="tw-text-xl tw-ml-1">気味</span>
 								</p>
 							{/if}
