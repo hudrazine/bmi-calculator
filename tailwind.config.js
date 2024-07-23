@@ -6,5 +6,5 @@ export default {
 	},
 	plugins: [],
 	prefix: "tw-",
-	important: "#bmi-calculator",
+	important: "#bmi",
 }
