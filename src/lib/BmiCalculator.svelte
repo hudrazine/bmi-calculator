@@ -112,7 +112,7 @@
 			<div class="tw-relative">
 				{#if $errorMessage}
 					<p
-						class="tw-absolute -tw-top-4 tw-left-0 tw-right-0 tw-text-red-500 tw-text-sm tw-text-center tw-bg-white tw-py-1"
+						class="tw-absolute -tw-top-7 tw-left-0 tw-right-0 tw-text-red-500 tw-text-sm tw-text-center tw-py-1"
 					>
 						{$errorMessage}
 					</p>
@@ -121,7 +121,7 @@
 					type="button"
 					on:click={calculateBMI}
 					class="
-						tw-w-full tw-py-3 tw-mt-4
+						tw-w-full tw-py-3
 						tw-rounded-lg
 						tw-bg-red-500
 						tw-text-white tw-text-lg tw-text-center tw-font-semibold
