@@ -5,7 +5,9 @@
 	 * このコンポーネントは、ユーザーの身長と体重を入力として受け取り、
 	 * BMIを計算して結果を表示します。
 	 */
+	import { cubicIn } from "svelte/easing"
 	import { writable } from "svelte/store"
+	import { fade } from "svelte/transition"
 	import InputField from "./InputField.svelte"
 
 	// Props
@@ -150,7 +152,10 @@
 			</h3>
 			<div class="tw-flex-1 tw-flex tw-items-center tw-justify-center">
 				{#if $bmi > 0}
-					<div class="tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full">
+					<div
+						in:fade={{ duration: 200, easing: cubicIn }}
+						class="tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full"
+					>
 						<div class="tw-flex-1 tw-text-center">
 							<p class="tw-text-base tw-text-gray-700 tw-mb-2">あなたのBMI</p>
 							<p class="tw-text-4xl tw-font-bold">{$bmi}</p>
