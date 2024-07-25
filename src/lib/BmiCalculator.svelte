@@ -8,6 +8,9 @@
 	import { writable } from "svelte/store"
 	import InputField from "./InputField.svelte"
 
+	// Props
+	export let title: string | null
+
 	/** BMI判定 */
 	const BmiKind = {
 		Under: "under",
@@ -80,7 +83,7 @@
 <div class="tw-max-w-xl tw-mx-auto">
 	<div class="tw-p-6 sm:tw-p-8 tw-bg-white tw-rounded-xl tw-border-2 tw-border-slate-300">
 		<p class="tw-mb-4 tw-text-xl tw-font-bold tw-text-center tw-text-gray-700">
-			自分の肥満度をチェックしてみましょう!
+			{title || "自分の肥満度をチェックしてみましょう!"}
 		</p>
 
 		<!-- 入力ブロック -->

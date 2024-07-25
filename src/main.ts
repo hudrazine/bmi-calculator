@@ -1,11 +1,7 @@
 import "./app.css"
-import App from "./App.svelte"
+import BmiCalculator from "./lib/BmiCalculator.svelte"
 
-/**
- * Svelteアプリを指定した要素にマウントし、既存の子要素を削除します。
- *
- * @param {HTMLElement} target - マウント先のHTML要素
- */
+// マウント先の要素を取得
 const target = document.getElementById("bmi") as HTMLElement
 
 // 既存の子要素を削除します。
@@ -16,8 +12,11 @@ while (target.firstChild) {
 	target.removeChild(target.firstChild)
 }
 
-const app = new App({
+const app = new BmiCalculator({
 	target: target,
+	props: {
+		title: target.getAttribute("data-title"),
+	},
 })
 
 export default app
